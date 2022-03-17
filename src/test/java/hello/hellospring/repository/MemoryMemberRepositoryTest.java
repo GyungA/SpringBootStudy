@@ -1,7 +1,6 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
-//import org.junit.jupiter.api.Assertions;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -26,9 +25,7 @@ class MemoryMemberRepositoryTest {
 
         repository.save(member);
 
-        Member member1 = repository.findById(member.getId()).get();
-//        System.out.println("result = " + (result == member));
-//        Assertions.assertEquals(member, null);
+        Member result = repository.findById(member.getId()).get();
         assertThat(member).isEqualTo(result);
     }
 
@@ -60,6 +57,6 @@ class MemoryMemberRepositoryTest {
 
         List<Member> result = repository.findAll();
 
-        assertThat(result.size()).isEqualTo(2);
+        assertThat(result.size()).isEqualTo(3);
     }
 }
